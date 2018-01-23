@@ -42,8 +42,10 @@ class htif_t
   const std::vector<std::string>& host_args() { return hargs; }
 
   reg_t get_entry_point() { return entry; }
-
- private:
+  addr_t tohost_addr;
+  addr_t fromhost_addr;
+ 
+private:
   void parse_arguments(int argc, char ** argv);
   void register_devices();
 
@@ -55,8 +57,6 @@ class htif_t
   std::string sig_file;
   addr_t sig_addr; // torture
   addr_t sig_len; // torture
-  addr_t tohost_addr;
-  addr_t fromhost_addr;
   int exitcode;
   bool stopped;
 
